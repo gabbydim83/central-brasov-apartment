@@ -1096,8 +1096,8 @@
         <p class="body-copy" data-i18n="introBody">Designul calm, lumina naturală și planul open-space creează un apartament potrivit atât pentru un city break, cât și pentru un sejur mai lung în Brașov. Livingul, bucătăria și zona de relaxare funcționează împreună într-un spațiu modern și aerisit.</p>
       </div>
       <div class="stacked">
-        <div class="image-card"><img src="Assets/Images/003.webp" alt="Living open-space Central Brasov Apartment"></div>
-        <div class="image-card"><img src="Assets/Images/009.webp" alt="Bucătărie Central Brasov Apartment"></div>
+        <div class="image-card"><img src="Assets/Images/Galerie/2.1.webp" alt="Living open-space Central Brasov Apartment"></div>
+        <div class="image-card"><img src="Assets/Images/Galerie/4.webp" alt="Bucătărie Central Brasov Apartment"></div>
       </div>
     </div>
   </section>
@@ -1109,10 +1109,10 @@
         <p class="body-copy" data-i18n="insideBody">Spațiile sunt gândite pentru confortul de zi cu zi: living generos, dormitor separat, bucătărie complet echipată și baie cu cadă. Fiecare zonă este simplă, practică și pregătită pentru un sejur relaxat în Brașov.</p>
       </div>
       <div class="rooms-grid">
-        <article class="room"><img src="Assets/Images/020.webp" alt="Dormitor Central Brasov Apartment"><div class="room-copy"><span data-i18n="bedroomLabel">Odihnă</span><h3 data-i18n="bedroomTitle">Dormitor</h3><p data-i18n="bedroomBody">Dormitor separat, cu lumină caldă și un design calm, în tonuri naturale.</p></div></article>
-        <article class="room"><img src="Assets/Images/004.webp" alt="Living Central Brasov Apartment"><div class="room-copy"><span data-i18n="livingLabel">Relaxare</span><h3 data-i18n="livingTitle">Living</h3><p data-i18n="livingBody">Canapea generoasă, TV și multă lumină naturală.</p></div></article>
-        <article class="room"><img src="Assets/Images/019.webp" alt="Bucătărie complet echipată"><div class="room-copy"><span data-i18n="kitchenLabel">Open-space</span><h3 data-i18n="kitchenTitle">Bucătărie</h3><p data-i18n="kitchenBody">Bucătărie complet echipată, insulă și zonă dedicată pentru cafea.</p></div></article>
-        <article class="room"><img src="Assets/Images/023.webp" alt="Baie cu cadă"><div class="room-copy"><span data-i18n="bathLabel">Confort</span><h3 data-i18n="bathTitle">Baie</h3><p data-i18n="bathBody">Baie luminoasă cu cadă și facilități utile pentru sejururi mai lungi.</p></div></article>
+        <article class="room"><img src="Assets/Images/Galerie/8.webp" alt="Dormitor Central Brasov Apartment"><div class="room-copy"><span data-i18n="bedroomLabel">Odihnă</span><h3 data-i18n="bedroomTitle">Dormitor</h3><p data-i18n="bedroomBody">Dormitor separat, cu lumină caldă și un design calm, în tonuri naturale.</p></div></article>
+        <article class="room"><img src="Assets/Images/Galerie/3.webp" alt="Living Central Brasov Apartment"><div class="room-copy"><span data-i18n="livingLabel">Relaxare</span><h3 data-i18n="livingTitle">Living</h3><p data-i18n="livingBody">Canapea generoasă, TV și multă lumină naturală.</p></div></article>
+        <article class="room"><img src="Assets/Images/Galerie/5.webp" alt="Bucătărie complet echipată"><div class="room-copy"><span data-i18n="kitchenLabel">Open-space</span><h3 data-i18n="kitchenTitle">Bucătărie</h3><p data-i18n="kitchenBody">Bucătărie complet echipată, insulă și zonă dedicată pentru cafea.</p></div></article>
+        <article class="room"><img src="Assets/Images/Galerie/9.webp" alt="Baie cu cadă"><div class="room-copy"><span data-i18n="bathLabel">Confort</span><h3 data-i18n="bathTitle">Baie</h3><p data-i18n="bathBody">Baie luminoasă cu cadă și facilități utile pentru sejururi mai lungi.</p></div></article>
       </div>
     </div>
   </section>
@@ -1515,20 +1515,32 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
-const galleryFiles=['001.webp','002.webp','003.webp','004.webp','4.webp','005.webp','006.webp','007.webp','008.webp','009.webp','010.webp','011.webp','012.webp','013.webp','014.webp','015.webp','016.webp','017.webp','018.webp','019.webp','020.webp','021.webp','022.webp','023.webp','024.webp','025.webp','026.webp','027.webp'];
+const galleryFiles=[
+  '1.webp',
+  '2.webp',
+  '2.1.webp',
+  '2.2.webp',
+  '3.webp',
+  '4.webp',
+  '5.webp',
+  '6.webp',
+  '7.webp',
+  '8.webp',
+  '9.webp'
+];
 let galleryExpanded=false, currentImage=0;
 const galleryGrid=document.getElementById('galleryGrid');
 function renderGallery(){
   galleryGrid.innerHTML='';
   const files=galleryExpanded?galleryFiles:galleryFiles.slice(0,8);
-  files.forEach((f,i)=>{const b=document.createElement('button');b.innerHTML=`<img loading="lazy" src="Assets/Images/${f}" alt="Central Brasov Apartment ${f}">`;b.onclick=()=>openModal(galleryFiles.indexOf(f));galleryGrid.appendChild(b)});
+  files.forEach((f,i)=>{const b=document.createElement('button');b.innerHTML=`<img loading="lazy" src="Assets/Images/Galerie/${f}" alt="Central Brasov Apartment ${f}">`;b.onclick=()=>openModal(galleryFiles.indexOf(f));galleryGrid.appendChild(b)});
   document.getElementById('toggleGallery').style.display=galleryFiles.length>8?'inline-flex':'none';
 }
 renderGallery();
 document.getElementById('toggleGallery').onclick=()=>{galleryExpanded=!galleryExpanded;renderGallery();document.getElementById('toggleGallery').textContent=galleryExpanded?t('showLess'):t('showAll')};
-function openModal(i){currentImage=i;document.getElementById('modalImg').src='Assets/Images/'+galleryFiles[i];document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
+function openModal(i){currentImage=i;document.getElementById('modalImg').src='Assets/Images/Galerie/'+galleryFiles[i];document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden'}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow=''}
-function stepModal(n){currentImage=(currentImage+n+galleryFiles.length)%galleryFiles.length;document.getElementById('modalImg').src='Assets/Images/'+galleryFiles[currentImage]}
+function stepModal(n){currentImage=(currentImage+n+galleryFiles.length)%galleryFiles.length;document.getElementById('modalImg').src='Assets/Images/Galerie/'+galleryFiles[currentImage]}
 document.getElementById('modalClose').onclick=closeModal;document.getElementById('modalPrev').onclick=()=>stepModal(-1);document.getElementById('modalNext').onclick=()=>stepModal(1);document.getElementById('modal').onclick=e=>{if(e.target.id==='modal')closeModal()};document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();if(document.getElementById('modal').classList.contains('open')){if(e.key==='ArrowLeft')stepModal(-1);if(e.key==='ArrowRight')stepModal(1)}});
 
 const header=document.getElementById('siteHeader');addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>24));
