@@ -1479,7 +1479,7 @@ document.getElementById('bookingBtn').onclick=()=>{
   if(!ci.value||!co.value){alert(currentLang==='ro'?'Te rog selectează perioada din calendar.':currentLang==='de'?'Bitte wählen Sie den Zeitraum im Kalender.':'Please select your dates in the calendar.');return}
   if(co.value<=ci.value){alert(currentLang==='ro'?'Check-out trebuie să fie după check-in.':currentLang==='de'?'Check-out muss nach Check-in liegen.':'Check-out must be after check-in.');return}
   const phone='40747172553';
-  const intro=currentLang==='de'?'Hallo! Ich möchte Informationen über Central Brasov Apartment.':currentLang==='en'?'Hello! I would like information about Central Brasov Apartment.':'Bună! Aș dori informații pentru Central Brasov Apartment.';
+  const intro=currentLang==='de'?'Hallo! Ich möchte Informationen über Central Brasov Apartment.':currentLang==='en'?'Hello! I would like information about Central Brasov Apartment.':'Bună ziua! As dori rezervare pentru Central Brasov Apartment.';
   const labels=currentLang==='de'?{guests:'Gäste',message:'Nachricht'}:currentLang==='en'?{guests:'Guests',message:'Message'}:{guests:'Oaspeți',message:'Mesaj'};
   const message=`${intro}
 
