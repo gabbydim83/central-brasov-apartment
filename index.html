@@ -62,7 +62,7 @@
     .btn.primary:hover{transform:translateY(-2px)}
     .btn.ghost{border-color:rgba(255,255,255,.55);color:white;background:rgba(255,255,255,.05);backdrop-filter:blur(8px)}
     .quickfacts{position:relative;z-index:2;margin-top:-34px}
-    .facts{background:rgba(255,253,249,.98);box-shadow:var(--shadow);border-radius:26px;display:grid;grid-template-columns:repeat(5,1fr);overflow:hidden}
+    .facts{background:rgba(255,253,249,.98);box-shadow:var(--shadow);border-radius:26px;display:grid;grid-template-columns:repeat(6,1fr);overflow:hidden}
     .fact{padding:24px 18px;border-right:1px solid var(--line)}
     .fact:last-child{border-right:0}.fact b{display:block;font-size:.92rem}.fact span{color:var(--muted);font-size:.83rem}
 
@@ -89,14 +89,40 @@
     .calendar-months{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
     .calendar-month{background:#fff;padding:12px 14px}.calendar-month-title{text-align:center;font-size:.8rem;font-weight:900;text-transform:capitalize;margin-bottom:8px}
     .calendar-weekdays,.calendar-days{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}.calendar-weekdays span{text-align:center;color:var(--muted);font-size:.58rem;font-weight:900;padding:2px 0 4px;text-transform:uppercase}
-    .calendar-day{aspect-ratio:1/1;border:0;border-radius:9px;background:transparent;color:var(--ink);cursor:pointer;font-size:.7rem;font-weight:800;display:grid;place-items:center}.calendar-day:hover:not(:disabled){background:var(--cream)}.calendar-day:disabled,.calendar-day.past{color:#c5c4c0;cursor:not-allowed}.calendar-day.selected{background:var(--deep);color:#fff}.calendar-day.in-range{background:#eee4d5;color:var(--ink)}.calendar-day.selected.in-range{background:var(--deep);color:#fff}.calendar-day.today{box-shadow:inset 0 0 0 1px var(--warm)}.calendar-day.empty{visibility:hidden;pointer-events:none}
+    .calendar-day{aspect-ratio:1/1;border:0;border-radius:9px;background:transparent;color:var(--ink);cursor:pointer;font-size:.7rem;font-weight:800;display:grid;place-items:center}.calendar-day:hover:not(:disabled){background:var(--cream)}.calendar-day:disabled,.calendar-day.past{color:#c5c4c0;cursor:not-allowed}.calendar-day.unavailable{background:#f1ece7;color:#b7aea5;text-decoration:line-through}.calendar-day.loading{opacity:.45}.calendar-day.selected{background:var(--deep);color:#fff}.calendar-day.in-range{background:#eee4d5;color:var(--ink)}.calendar-day.selected.in-range{background:var(--deep);color:#fff}.calendar-day.today{box-shadow:inset 0 0 0 1px var(--warm)}.calendar-day.empty{visibility:hidden;pointer-events:none}
     .fields{display:grid;grid-template-columns:1fr 1fr .72fr;gap:9px}.field-full{grid-column:1/-1}
     label{font-size:.7rem;font-weight:800;color:var(--muted);display:block;margin-bottom:5px}
     input,select,textarea{width:100%;border:1px solid var(--line);background:#fbfaf7;border-radius:13px;padding:10px 11px;color:var(--ink);outline:none;font-size:.86rem}
     input:focus,select:focus,textarea:focus{border-color:var(--warm)}textarea{resize:vertical;min-height:100px}
-    .summary{margin:18px 0;background:var(--cream);border-radius:18px;padding:17px;color:var(--muted)}
+    .summary{display:none;margin:18px 0;background:var(--cream);border-radius:18px;padding:17px;color:var(--muted)}
     .booking-card .btn{width:100%;background:var(--deep);color:#fff}
-    .booking-note{margin:10px 2px 0;color:var(--muted);font-size:.74rem;line-height:1.5}
+    .booking-note{margin:10px 2px 0;color:var(--muted);font-size:.74rem;line-height:1.5}.booking-note:empty{display:none}
+
+
+    .reviews-section{padding:18px 0 96px;background:var(--paper);overflow:hidden}
+    .reviews-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:28px}
+    .reviews-head-copy{max-width:720px}
+    .reviews-head-copy p{margin:10px 0 0;color:var(--muted);font-size:1rem;line-height:1.65}
+    .reviews-nav{display:flex;gap:8px;flex:0 0 auto}
+    .reviews-nav button{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--deep);font-size:1.2rem;font-weight:900;cursor:pointer;box-shadow:0 8px 24px rgba(35,31,26,.07)}
+    .reviews-nav button:hover{background:var(--deep);color:#fff}
+    .reviews-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:4px 2px 16px}
+    .reviews-track::-webkit-scrollbar{display:none}
+    .review-card{position:relative;flex:0 0 calc((100% - 32px)/3);min-width:0;scroll-snap-align:start;border:1px solid var(--line);border-radius:26px;background:#fff;padding:24px;box-shadow:0 16px 42px rgba(35,31,26,.08);display:flex;flex-direction:column}
+    .review-card::before{content:'“';position:absolute;right:20px;top:2px;font-family:Georgia,"Times New Roman",serif;font-size:5.2rem;line-height:1;color:rgba(168,131,93,.14)}
+    .review-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}
+    .review-author{display:flex;align-items:center;gap:11px;min-width:0}
+    .review-avatar{width:42px;height:42px;flex:0 0 42px;border-radius:50%;display:grid;place-items:center;background:var(--cream);color:var(--deep);font-family:Georgia,"Times New Roman",serif;font-size:1.1rem;font-weight:700}
+    .review-author strong{display:block;font-size:.94rem;color:var(--ink)}
+    .review-author span{display:block;margin-top:2px;color:var(--muted);font-size:.72rem}
+    .review-score{flex:0 0 auto;padding:7px 10px;border-radius:999px;background:var(--deep);color:#fff;font-size:.74rem;font-weight:900;letter-spacing:.02em}
+    .review-card h3{position:relative;z-index:1;margin:0 0 12px;font-family:Georgia,"Times New Roman",serif;font-size:1.45rem;line-height:1.1;font-weight:500;color:var(--deep)}
+    .review-text{margin:0;color:#585751;font-size:.91rem;line-height:1.7;flex:1}
+    .review-meta{margin-top:20px;padding-top:15px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:7px;color:var(--muted);font-size:.69rem}
+    .review-meta span{padding:5px 8px;border-radius:999px;background:var(--cream)}
+    .reviews-dots{display:flex;justify-content:center;gap:7px;margin-top:12px}
+    .reviews-dot{width:7px;height:7px;border:0;border-radius:50%;padding:0;background:#d1c9bf;cursor:pointer;transition:.2s ease}
+    .reviews-dot.active{width:22px;border-radius:999px;background:var(--warm)}
 
     .gallery-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:34px}
     .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:235px;gap:12px}
@@ -112,7 +138,7 @@
     .location-card{background:var(--deep);color:#fff;border-radius:30px;padding:40px;min-height:470px;display:flex;flex-direction:column;justify-content:space-between}
     .distances{display:grid;grid-template-columns:1fr 1fr;gap:10px}.distance{padding:15px;border:1px solid rgba(255,255,255,.14);border-radius:16px}.distance b{display:block;font-size:1.25rem}.distance span{font-size:.8rem;color:rgba(255,255,255,.7)}
 
-    .sibling{color:#fff;overflow:hidden;position:relative;background:linear-gradient(rgba(9,28,23,.88),rgba(9,28,23,.90)),url('Assets/Images/central_premium_bg.webp') center/cover no-repeat}
+    .sibling{color:#fff;overflow:hidden;position:relative;background:linear-gradient(rgba(9,28,23,.62),rgba(9,28,23,.70)),url('Assets/Images/central_premium_bg.webp') center/cover no-repeat}
     .sibling-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:48px;align-items:center}
     .sibling p{color:rgba(255,255,255,.82)}
     .sibling h2{font-size:clamp(2.15rem,4vw,4rem);max-width:780px}
@@ -137,12 +163,12 @@
     @media(max-width:980px){
       .navlinks{display:none;position:absolute;left:20px;right:20px;top:70px;flex-direction:column;align-items:flex-start;background:#fff;color:var(--ink);padding:22px;border-radius:22px;box-shadow:var(--shadow)}.navlinks.open{display:flex}.menu-btn{display:block}.nav-right{display:flex;align-items:center;gap:8px}
       .facts{grid-template-columns:repeat(2,1fr)}.fact{border-bottom:1px solid var(--line)}
-      .intro-grid,.booking-wrap,.location-grid,.sibling-grid{grid-template-columns:1fr}.stacked{grid-template-columns:1fr 1fr}.rooms-grid{grid-template-columns:1fr 1fr}.gallery{grid-template-columns:repeat(3,1fr)}.amenities{grid-template-columns:repeat(2,1fr)}
+      .intro-grid,.booking-wrap,.location-grid,.sibling-grid{grid-template-columns:1fr}.stacked{grid-template-columns:1fr 1fr}.rooms-grid{grid-template-columns:1fr 1fr}.review-card{flex-basis:calc((100% - 16px)/2)}.gallery{grid-template-columns:repeat(3,1fr)}.amenities{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:680px){
       .shell{width:min(100% - 24px,var(--max))}.section{padding:76px 0}
-      .hero{min-height:82svh;background-position:center center}
-      .hero-inner{padding:118px 0 18px;text-align:left}
+      .hero{min-height:74svh;background-position:62% center;background-size:cover}
+      .hero-inner{padding:108px 0 12px;text-align:left}
       .hero .eyebrow{font-size:.58rem;letter-spacing:.14em}
       .hero h1{font-size:clamp(1.9rem,9.2vw,2.45rem);max-width:95%;line-height:.96;margin-bottom:10px}
       .hero .lead{font-size:.78rem;line-height:1.44;max-width:94%;margin-bottom:0}
@@ -151,7 +177,7 @@
       .rooms-head,.gallery-head{display:block}.rooms-grid{grid-template-columns:1fr}.room{min-height:400px}
       .booking-wrap{gap:26px}.booking-card{padding:16px}.calendar-toolbar{padding:11px 12px}.calendar-toolbar-copy strong{font-size:1.08rem}.calendar-toolbar-copy span{font-size:.64rem}.calendar-months{grid-template-columns:1fr}.calendar-month:nth-child(2){display:none}.calendar-month{padding:9px}.calendar-day{font-size:.68rem;border-radius:8px}.fields{grid-template-columns:1fr 1fr .72fr;gap:6px}.field-full{grid-column:1/-1}label{font-size:.61rem;margin-bottom:3px}input,select,textarea{padding:8px 7px;font-size:.72rem;border-radius:10px}textarea{min-height:86px}
       .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:112px;gap:8px;grid-auto-flow:dense}.gallery button{border-radius:14px}.gallery button:nth-child(1){grid-column:span 2;grid-row:span 2}.gallery button:nth-child(2){grid-row:span 2}.gallery button:nth-child(5){grid-column:span 2}.gallery button:nth-child(7){grid-row:span 2}.gallery button:nth-child(11){grid-column:span 2;grid-row:span 2}.gallery button:nth-child(18){grid-column:span 2;grid-row:span 2}
-      .amenities{grid-template-columns:1fr 1fr}.location-card{padding:28px;min-height:auto}.distances{grid-template-columns:1fr}.sibling h2{font-size:1.95rem}.footer-row{flex-direction:column;align-items:flex-start}.modal-nav{top:auto;bottom:18px}.modal-prev{left:calc(50% - 58px)}.modal-next{right:calc(50% - 58px)}
+      .reviews-section{padding:8px 0 72px}.reviews-head{display:block;margin-bottom:18px}.reviews-head-copy p{font-size:.88rem}.reviews-nav{display:none}.review-card{flex:0 0 86%;padding:20px;border-radius:22px}.review-card h3{font-size:1.28rem}.review-text{font-size:.84rem;line-height:1.62}.amenities{grid-template-columns:1fr 1fr}.location-card{padding:28px;min-height:auto}.distances{grid-template-columns:1fr}.sibling h2{font-size:1.95rem}.footer-row{flex-direction:column;align-items:flex-start}.modal-nav{top:auto;bottom:18px}.modal-prev{left:calc(50% - 58px)}.modal-next{right:calc(50% - 58px)}
     }
 
     .section-kicker{
@@ -1041,6 +1067,7 @@
 
   <div class="quickfacts shell">
     <div class="facts">
+      <div class="fact"><b data-i18n="fact0b">Până la 4 oaspeți</b><span data-i18n="fact0s">capacitate maximă</span></div>
       <div class="fact"><b data-i18n="fact1b">Living open-space</b><span data-i18n="fact1s">spațios și luminos</span></div>
       <div class="fact"><b data-i18n="fact2b">Dormitor separat</b><span data-i18n="fact2s">ambient cald și liniștit</span></div>
       <div class="fact"><b data-i18n="fact3b">Baie cu cadă</b><span data-i18n="fact3s">plus mașină de spălat</span></div>
@@ -1103,12 +1130,75 @@
         <div class="fields">
           <div><label for="checkin">Check-in</label><input id="checkin" type="date" required></div>
           <div><label for="checkout">Check-out</label><input id="checkout" type="date" required></div>
-          <div><label for="guests" data-i18n="guests">Oaspeți</label><input id="guests" type="number" min="1" value="2" required></div>
+          <div><label for="guests" data-i18n="guests">Oaspeți</label><select id="guests" required><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option></select></div>
           <div class="field-full"><label for="guestMessage" data-i18n="messageLabel">Mesaj</label><textarea id="guestMessage" data-i18n-placeholder="messagePlaceholder" placeholder="Detalii suplimentare (opțional)"></textarea></div>
         </div>
-        <div class="summary" id="bookingSummary" data-i18n="summaryEmpty">Selectează datele pentru a vedea rezumatul sejurului.</div>
+        <div class="summary" id="bookingSummary" aria-live="polite"></div>
         <button class="btn" id="bookingBtn" type="button" data-i18n="sendRequest">Trimite cererea</button>
+        <div class="booking-note" id="bookingStatus" aria-live="polite"></div>
       </div>
+    </div>
+  </section>
+
+  <section class="reviews-section" id="reviews">
+    <div class="shell">
+      <div class="reviews-head">
+        <div class="reviews-head-copy">
+          <div class="eyebrow" data-i18n="reviewsKicker">Recenzii</div>
+          <h2 data-i18n="reviewsTitle">Ce spun oaspeții.</h2>
+          <p data-i18n="reviewsLead">Experiențe reale de la oaspeți care au ales Central Brasov Apartment pentru sejurul lor în Brașov.</p>
+        </div>
+        <div class="reviews-nav" aria-label="Review navigation">
+          <button type="button" id="reviewsPrev" aria-label="Previous review">‹</button>
+          <button type="button" id="reviewsNext" aria-label="Next review">›</button>
+        </div>
+      </div>
+
+      <div class="reviews-track" id="reviewsTrack">
+        <article class="review-card">
+          <div class="review-top"><div class="review-author"><div class="review-avatar">M</div><div><strong>Mariana</strong><span>România</span></div></div><div class="review-score">10/10</div></div>
+          <h3>Apartament superb in Brasov</h3>
+          <p class="review-text">Apartament nou, foarte frumos amenajat. Ne-a parut rau ca nu am putut sta mai multe zile. Vom reveni cu siguranta!</p>
+          <div class="review-meta"><span>1 noapte · septembrie 2026</span><span>Călător neînsoțit</span><span>10 septembrie 2026</span></div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top"><div class="review-author"><div class="review-avatar">R</div><div><strong>Robert</strong><span>România</span></div></div><div class="review-score">10/10</div></div>
+          <h3>Foarte bine!</h3>
+          <p class="review-text">Un apartament foarte frumos, îngrijit și curat. Gazdele sunt foarte primitoare și ne-au oferit indicațiile necesare pentru a ajunge la locație fără probleme! Vă mulțumim! Cu siguranță dacă vom avea ocazia, vom reveni cu drag!</p>
+          <div class="review-meta"><span>1 noapte · decembrie 2025</span><span>Grup</span><span>16 decembrie 2025</span></div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top"><div class="review-author"><div class="review-avatar">P</div><div><strong>Patricia</strong><span>România</span></div></div><div class="review-score">10/10</div></div>
+          <h3>Central Brasov Apartment a fost o alegere minunata. Recomand cu incredere!</h3>
+          <p class="review-text">Apartamentul este foarte spatios si modern, curat si cu un aer cozy. Am avut toate facilitatile pentru un sejur minunat si mai mult decat atat, proprietarii au fost niste oameni de nota 10. Locatia este foarte aproape de centru, astfel incat am putut ajunge ps jos in mai putin de 10 minute. Abia asteptam sa ne reintoarcem!!!!</p>
+          <div class="review-meta"><span>1 noapte · noiembrie 2025</span><span>Cuplu</span><span>10 noiembrie 2025</span></div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top"><div class="review-author"><div class="review-avatar">W</div><div><strong>Weronika</strong><span>Polonia</span></div></div><div class="review-score">10/10</div></div>
+          <h3>Great place, highly recommended</h3>
+          <p class="review-text">We had a great stay! The apartment was beautiful, very clean, and well-equipped with everything we needed. The area is quiet and peaceful, yet very close to the main tourist attractions within walking distance. The host was very kind and friendly. Everything was perfect and we would definitely stay here again if we come back to Brasov again ☺️</p>
+          <div class="review-meta"><span>2 nopți · aprilie 2026</span><span>Călător neînsoțit</span><span>29 aprilie 2026</span></div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top"><div class="review-author"><div class="review-avatar">C</div><div><strong>Cristina</strong><span>Suedia</span></div></div><div class="review-score">10/10</div></div>
+          <h3>Luxurious, Spotless and super friendly Host :)</h3>
+          <p class="review-text">The host Dima was super friendly, making our stay feel relaxed and comfortable. The apartment was beyond expectations — spotless, cozy, and beautifully designed. The beds were really comfy, and the kitchen had absolutely everything you could possibly need. The location is amazing too, close to all the best spots such as Lidl for groceries or restaurants for faimily dinner. We truly loved our stay and would definitely come back!</p>
+          <div class="review-meta"><span>1 noapte · noiembrie 2025</span><span>Călător neînsoțit</span><span>7 noiembrie 2025</span></div>
+        </article>
+
+        <article class="review-card">
+          <div class="review-top"><div class="review-author"><div class="review-avatar">E</div><div><strong>Elke</strong><span>Germania</span></div></div><div class="review-score">10/10</div></div>
+          <h3>Sehr empfehlenswertes Appartement in Brasov</h3>
+          <p class="review-text">Das Appartement ist sehr schön, sauber und modern. Die Küche ist der Wahnsinn sowie die komplette Wohnung. Die Terrasse ist richtig toll zum sitzen. Die Dame des Hauses hat uns tolle Tipps gegeben von Restaurants und wo man einkaufen kann. Sehr freundlich und Zentrumsnah. Würden wir wieder nehmen.</p>
+          <div class="review-meta"><span>2 nopți · septembrie 2026</span><span>Grup</span><span>22 septembrie 2026</span></div>
+        </article>
+      </div>
+
+      <div class="reviews-dots" id="reviewsDots" aria-label="Review position"></div>
     </div>
   </section>
 
@@ -1389,6 +1479,8 @@
 
 <div class="modal" id="modal"><button class="modal-close" id="modalClose">×</button><button class="modal-nav modal-prev" id="modalPrev">‹</button><img id="modalImg" alt="Gallery image"><button class="modal-nav modal-next" id="modalNext">›</button></div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 const galleryFiles=['001.webp','002.webp','003.webp','004.webp','4.webp','005.webp','006.webp','007.webp','008.webp','009.webp','010.webp','011.webp','012.webp','013.webp','014.webp','015.webp','016.webp','017.webp','018.webp','019.webp','020.webp','021.webp','022.webp','023.webp','024.webp','025.webp','026.webp','027.webp'];
 let galleryExpanded=false, currentImage=0;
@@ -1411,34 +1503,170 @@ document.getElementById('menuBtn').onclick=()=>document.getElementById('navLinks
 const langBtn=document.getElementById('langBtn'),langMenu=document.getElementById('langMenu');langBtn.onclick=()=>langMenu.classList.toggle('open');document.addEventListener('click',e=>{if(!e.target.closest('.lang'))langMenu.classList.remove('open')});
 
 const I18N={
-ro:{navApartment:'Apartamentul',navGallery:'Galerie',navLocation:'Locație',navExplore:'Explore Brașov',navBooking:'Rezervare',heroKicker:'Brașov · aproape de Centrul Vechi',heroTitle:'Confort urban, cu atmosfera de acasă.',heroLead:'Un apartament luminos și atent amenajat, cu living open-space, bucătărie complet echipată, dormitor confortabil și o zonă exterioară pentru momente de liniște.',checkAvailability:'Verifică disponibilitatea',discoverApartment:'Descoperă apartamentul',fact1b:'Living open-space',fact1s:'spațios și luminos',fact2b:'Dormitor separat',fact2s:'ambient cald și liniștit',fact3b:'Baie cu cadă',fact3s:'plus mașină de spălat',fact4b:'Bucătărie completă',fact4s:'inclusiv aparat de cafea',fact5b:'Zonă exterioară',fact5s:'pentru relaxare',introTitle:'Un spațiu în care te instalezi ușor.',introBody:'Designul calm, lumina naturală și planul open-space creează un apartament potrivit atât pentru un city break, cât și pentru un sejur mai lung în Brașov. Livingul, bucătăria și zona de relaxare funcționează împreună într-un spațiu modern și aerisit.',insideKicker:'Apartamentul',insideTitle:'Tot ce ai nevoie, într-un singur loc.',insideBody:'Spațiile sunt gândite pentru confortul de zi cu zi: living generos, dormitor separat, bucătărie complet echipată și baie cu cadă. Fiecare zonă este simplă, practică și pregătită pentru un sejur relaxat în Brașov.',bedroomLabel:'Odihnă',bedroomTitle:'Dormitor',bedroomBody:'Dormitor separat, cu lumină caldă și un design calm, în tonuri naturale.',livingLabel:'Relaxare',livingTitle:'Living',livingBody:'Canapea generoasă, TV și multă lumină naturală.',kitchenLabel:'Open-space',kitchenTitle:'Bucătărie',kitchenBody:'Bucătărie complet echipată, insulă și zonă dedicată pentru cafea.',bathLabel:'Confort',bathTitle:'Baie',bathBody:'Baie luminoasă cu cadă și facilități utile pentru sejururi mai lungi.',planKicker:'Planifică sejurul',planTitle:'Alege perioada și trimite cererea direct.',planBody:'Selectează perioada din calendar, numărul de oaspeți și, dacă dorești, adaugă un mesaj. Cererea va include automat toate detaliile sejurului.',guests:'Oaspeți',summaryEmpty:'Selectează datele pentru a vedea rezumatul sejurului.',continueBooking:'Trimite cererea',calendarTitle:'Alege perioada',calendarHelp:'Prima dată este check-in; a doua este check-out.',messageLabel:'Mesaj',messagePlaceholder:'Detalii suplimentare (opțional)',sendRequest:'Trimite cererea',galleryKicker:'Galerie',galleryTitle:'Toate cadrele, într-un singur loc.',showAll:'Vezi toate fotografiile',showLess:'Arată mai puține',amenitiesKicker:'Confort esențial',amenitiesTitle:'Dotări pentru un sejur fără complicații.',am1:'Aparat automat de cafea',am2:'Bucătărie echipată',am3:'Mașină de spălat',am4:'TV cu ecran plat',am5:'Cadă',am6:'Zonă exterioară',am7:'Frigider & cuptor',am8:'Veselă și ustensile',locationKicker:'Locație',locationTitle:'Central, dar într-o zonă liniștită.',locationBody:'Aproape de centrul istoric al Brașovului, dar într-o poziție mai calmă, apartamentul oferă acces rapid către oraș și un mic loc de relaxare în aer liber pentru dimineți liniștite sau seri lejere.',locationOutdoor:'Loc de relaxare în aer liber',oldTown:'Centrul Vechi',council:'Piața Sfatului',siblingKicker:'Două apartamente · aceeași clădire',siblingTitle:'Nu ai găsit date disponibile sau ai nevoie de mai mult spațiu?',siblingBody:'În aceeași clădire se află și Central Premium Apartment. Dacă perioada dorită nu este disponibilă aici sau călătoriți cu prietenii și aveți nevoie de mai mult spațiu, îl puteți verifica și pe acesta.',siblingAltTitle:'Alte date disponibile',siblingAltBody:'O alternativă rapidă dacă perioada dorită nu este liberă aici.',siblingGroupTitle:'Mai mult spațiu',siblingGroupBody:'Două apartamente în aceeași clădire pentru grupuri, prieteni sau familii care vor mai multă flexibilitate.',siblingPanelLabel:'Tot în aceeași clădire',siblingPanelBody:'Apartament spațios, cu două dormitoare, două băi și vedere spre Tâmpa — o opțiune complementară pentru familii și grupuri.',siblingFeature1:'⌂ Două dormitoare și două băi',siblingFeature2:'⛰ Vedere spre Tâmpa',siblingFeature3:'↔ În aceeași clădire',seeSibling:'Vezi Central Premium Apartment',exploreTitle:'Brașovul, într-un singur loc.',exploreKicker:'Explore Brașov',exploreBody:'Vreme, restaurante, activități, locuri de vizitat și servicii pentru oaspeți — aceeași direcție pregătită pentru ecosistemul Brașov, integrat direct în website.',weatherLabel:'Vreme live · Brașov',weatherLoading:'Se încarcă vremea...',weatherReady:'Date meteo actuale',exp1:'Experiențe în Brașov',exp1b:'Activități și experiențe locale din ecosistem.',exp2:'Restaurante aproape de cazare',exp2b:'Recomandări care pot fi sortate după distanță.',exp3:'Locuri de vizitat',exp3b:'Atracții și obiective din baza centrală Explore Brașov.',exp4:'Servicii pentru oaspeți',exp4b:'Transport, transferuri și alte servicii utile.',finalTitle:'Un loc simplu și confortabil pentru zile frumoase în Brașov.',finalBody:'Alege perioada, descoperă apartamentul și trimite cererea direct proprietarului pentru a planifica sejurul în Brașov.',backTop:'Sus'},
-en:{navApartment:'Apartment',navGallery:'Gallery',navLocation:'Location',navExplore:'Explore Brașov',navBooking:'Book',heroKicker:'Brașov · near the Old Town',heroTitle:'Urban comfort, with a home-like feel.',heroLead:'A bright, carefully designed apartment with an open-plan living room, fully equipped kitchen, comfortable bedroom and an outdoor area for quiet moments.',checkAvailability:'Check availability',discoverApartment:'Discover the apartment',fact1b:'Open-plan living',fact1s:'bright and spacious',fact2b:'Separate bedroom',fact2s:'warm and quiet atmosphere',fact3b:'Bathroom with bathtub',fact3s:'plus washing machine',fact4b:'Full kitchen',fact4s:'including coffee machine',fact5b:'Outdoor area',fact5s:'made for relaxing',introTitle:'A space that is easy to settle into.',introBody:'A calm design, natural light and an open-plan layout make this apartment a good fit for both a city break and a longer stay in Brașov. The living area, kitchen and relaxation space flow together in a modern, airy interior.',insideKicker:'The apartment',insideTitle:'Everything you need, in one place.',insideBody:'The apartment is designed around everyday comfort: a generous living area, a separate bedroom, a fully equipped kitchen and a bathroom with a bathtub. Each space is practical, calm and ready for an easy stay in Brașov.',bedroomLabel:'Rest',bedroomTitle:'Bedroom',bedroomBody:'A separate bedroom with warm lighting and a calm, natural palette.',livingLabel:'Relax',livingTitle:'Living Room',livingBody:'Generous sofa, TV and plenty of natural light.',kitchenLabel:'Open-plan',kitchenTitle:'Kitchen',kitchenBody:'Fully equipped kitchen with island and a dedicated coffee corner.',bathLabel:'Comfort',bathTitle:'Bathroom',bathBody:'Bright bathroom with bathtub and practical amenities for longer stays.',planKicker:'Plan your stay',planTitle:'Choose your dates and send your request directly.',planBody:'Select your dates in the calendar, choose the number of guests and add a message if you wish. Your request will automatically include all the stay details.',guests:'Guests',summaryEmpty:'Choose your dates to see the stay summary.',continueBooking:'Send request',calendarTitle:'Choose your dates',calendarHelp:'The first date is check-in; the second is check-out.',messageLabel:'Message',messagePlaceholder:'Additional details (optional)',sendRequest:'Send request',galleryKicker:'Gallery',galleryTitle:'Every frame, in one place.',showAll:'View all photos',showLess:'Show fewer',amenitiesKicker:'Essential comfort',amenitiesTitle:'Useful amenities for an easy stay.',am1:'Automatic coffee machine',am2:'Equipped kitchen',am3:'Washing machine',am4:'Flat-screen TV',am5:'Bathtub',am6:'Outdoor area',am7:'Fridge & oven',am8:'Tableware & utensils',locationKicker:'Location',locationTitle:'Central, yet in a quiet area.',locationBody:'Close to Brașov’s historic centre yet set in a calmer spot, the apartment gives you easy access to the city together with a small outdoor area for slow mornings or relaxed evenings.',locationOutdoor:'Outdoor relaxation corner',oldTown:'Old Town',council:'Council Square',siblingKicker:'Two apartments · same building',siblingTitle:'Can’t find available dates or need more space?',siblingBody:'Central Premium Apartment is in the same building. If your preferred dates are unavailable here or you are travelling with friends and need more space, you can also check the sister apartment.',siblingAltTitle:'Alternative dates',siblingAltBody:'A quick option when your preferred dates are not available here.',siblingGroupTitle:'More space',siblingGroupBody:'Two apartments in the same building for groups, friends or families who want more flexibility.',siblingPanelLabel:'Also in the same building',siblingPanelBody:'A spacious apartment with two bedrooms, two bathrooms and views towards Tâmpa — a complementary option for families and groups.',siblingFeature1:'⌂ Two bedrooms and two bathrooms',siblingFeature2:'⛰ Tâmpa views',siblingFeature3:'↔ Same building',seeSibling:'View Central Premium Apartment',exploreTitle:'Brașov, all in one place.',exploreKicker:'Explore Brașov',exploreBody:'Weather, restaurants, activities, places to visit and guest services — the same direction prepared for the Brașov ecosystem, integrated directly into the website.',weatherLabel:'Live weather · Brașov',weatherLoading:'Loading weather...',weatherReady:'Current weather',exp1:'Experiences in Brașov',exp1b:'Local activities and experiences from the ecosystem.',exp2:'Restaurants near your stay',exp2b:'Recommendations that can be sorted by distance.',exp3:'Places to visit',exp3b:'Attractions loaded from the central Explore Brașov database.',exp4:'Guest services',exp4b:'Transport, transfers and other useful services.',finalTitle:'A simple, comfortable place for memorable days in Brașov.',finalBody:'Choose your dates, discover the apartment and send your request directly to the owner to plan your Brașov stay.',backTop:'Top'},
-de:{navApartment:'Apartment',navGallery:'Galerie',navLocation:'Lage',navExplore:'Explore Brașov',navBooking:'Buchen',heroKicker:'Brașov · nahe der Altstadt',heroTitle:'Urbaner Komfort mit einem Gefühl wie zu Hause.',heroLead:'Ein helles, sorgfältig eingerichtetes Apartment mit offenem Wohnbereich, voll ausgestatteter Küche, komfortablem Schlafzimmer und einem Außenbereich für ruhige Momente.',checkAvailability:'Verfügbarkeit prüfen',discoverApartment:'Apartment entdecken',fact1b:'Offener Wohnbereich',fact1s:'hell und großzügig',fact2b:'Separates Schlafzimmer',fact2s:'warm und ruhig',fact3b:'Bad mit Badewanne',fact3s:'plus Waschmaschine',fact4b:'Komplette Küche',fact4s:'inklusive Kaffeemaschine',fact5b:'Außenbereich',fact5s:'zum Entspannen',introTitle:'Ein Ort, an dem man sich schnell wohlfühlt.',introBody:'Ruhiges Design, viel Tageslicht und ein offener Grundriss machen das Apartment ideal für einen Citytrip oder einen längeren Aufenthalt in Brașov.',insideKicker:'Das Apartment',insideTitle:'Alles, was Sie brauchen, an einem Ort.',insideBody:'Das Apartment ist auf täglichen Komfort ausgelegt: großzügiger Wohnbereich, separates Schlafzimmer, voll ausgestattete Küche und ein Badezimmer mit Badewanne. Jeder Bereich ist praktisch, ruhig und für einen entspannten Aufenthalt in Brașov vorbereitet.',bedroomLabel:'Erholung',bedroomTitle:'Schlafzimmer',bedroomBody:'Separates Schlafzimmer mit warmem Licht und ruhigen Naturtönen.',livingLabel:'Entspannung',livingTitle:'Wohnzimmer',livingBody:'Großzügiges Sofa, TV und viel Tageslicht.',kitchenLabel:'Open Space',kitchenTitle:'Küche',kitchenBody:'Voll ausgestattete Küche mit Insel und separater Kaffee-Ecke.',bathLabel:'Komfort',bathTitle:'Badezimmer',bathBody:'Helles Badezimmer mit Badewanne und praktischer Ausstattung für längere Aufenthalte.',planKicker:'Aufenthalt planen',planTitle:'Wählen Sie Ihre Daten und senden Sie Ihre Anfrage direkt.',planBody:'Wählen Sie den Zeitraum im Kalender und die Gästezahl und fügen Sie bei Bedarf eine Nachricht hinzu. Ihre Anfrage enthält automatisch alle Aufenthaltsdetails.',guests:'Gäste',summaryEmpty:'Wählen Sie Ihre Daten, um die Zusammenfassung zu sehen.',continueBooking:'Anfrage senden',calendarTitle:'Zeitraum wählen',calendarHelp:'Das erste Datum ist Check-in; das zweite ist Check-out.',messageLabel:'Nachricht',messagePlaceholder:'Zusätzliche Angaben (optional)',sendRequest:'Anfrage senden',galleryKicker:'Galerie',galleryTitle:'Alle Bilder an einem Ort.',showAll:'Alle Fotos ansehen',showLess:'Weniger anzeigen',amenitiesKicker:'Wesentlicher Komfort',amenitiesTitle:'Ausstattung für einen unkomplizierten Aufenthalt.',am1:'Automatische Kaffeemaschine',am2:'Ausgestattete Küche',am3:'Waschmaschine',am4:'Flachbild-TV',am5:'Badewanne',am6:'Außenbereich',am7:'Kühlschrank & Backofen',am8:'Geschirr & Küchenutensilien',locationKicker:'Lage',locationTitle:'Zentral, aber in ruhiger Umgebung.',locationBody:'Nahe dem historischen Zentrum von Brașov und dennoch in ruhigerer Lage bietet das Apartment schnellen Zugang zur Stadt sowie einen kleinen Außenbereich für entspannte Morgen oder ruhige Abende.',locationOutdoor:'Kleiner Außenbereich zum Entspannen',oldTown:'Altstadt',council:'Rathausplatz',siblingKicker:'Zwei Apartments · dasselbe Gebäude',siblingTitle:'Keine verfügbaren Daten gefunden oder mehr Platz benötigt?',siblingBody:'Central Premium Apartment befindet sich im selben Gebäude. Wenn Ihr Wunschzeitraum hier nicht verfügbar ist oder Sie mit Freunden reisen und mehr Platz benötigen, können Sie auch das Schwester-Apartment prüfen.',siblingAltTitle:'Alternative Reisedaten',siblingAltBody:'Eine schnelle Alternative, wenn Ihr Wunschzeitraum hier nicht verfügbar ist.',siblingGroupTitle:'Mehr Platz',siblingGroupBody:'Zwei Apartments im selben Gebäude für Gruppen, Freunde oder Familien, die mehr Flexibilität wünschen.',siblingPanelLabel:'Ebenfalls im selben Gebäude',siblingPanelBody:'Ein großzügiges Apartment mit zwei Schlafzimmern, zwei Bädern und Blick auf die Tâmpa — eine passende Ergänzung für Familien und Gruppen.',siblingFeature1:'⌂ Zwei Schlafzimmer und zwei Bäder',siblingFeature2:'⛰ Blick auf die Tâmpa',siblingFeature3:'↔ Dasselbe Gebäude',seeSibling:'Central Premium Apartment ansehen',exploreTitle:'Brașov an einem Ort.',exploreKicker:'Explore Brașov',exploreBody:'Wetter, Restaurants, Aktivitäten, Sehenswürdigkeiten und Gästeservices — dieselbe Richtung für das Brașov-Ökosystem, direkt in die Website integriert.',weatherLabel:'Live-Wetter · Brașov',weatherLoading:'Wetter wird geladen...',weatherReady:'Aktuelle Wetterdaten',exp1:'Erlebnisse in Brașov',exp1b:'Lokale Aktivitäten und Erlebnisse aus dem Ökosystem.',exp2:'Restaurants in der Nähe',exp2b:'Empfehlungen, die nach Entfernung sortiert werden können.',exp3:'Sehenswürdigkeiten',exp3b:'Attraktionen aus der zentralen Explore-Brașov-Datenbank.',exp4:'Gästeservices',exp4b:'Transport, Transfers und weitere nützliche Services.',finalTitle:'Ein unkomplizierter, komfortabler Ort für schöne Tage in Brașov.',finalBody:'Wählen Sie Ihre Daten, entdecken Sie das Apartment und senden Sie Ihre Anfrage direkt an den Eigentümer, um Ihren Brașov-Aufenthalt zu planen.',backTop:'Nach oben'}
+ro:{navApartment:'Apartamentul',navGallery:'Galerie',navLocation:'Locație',navExplore:'Explore Brașov',navBooking:'Rezervare',heroKicker:'Brașov · aproape de Centrul Vechi',heroTitle:'Confort urban, cu atmosfera de acasă.',heroLead:'Un apartament luminos și atent amenajat, cu living open-space, bucătărie complet echipată, dormitor confortabil și o zonă exterioară pentru momente de liniște.',fact0b:'Până la 4 oaspeți',fact0s:'capacitate maximă',checkAvailability:'Verifică disponibilitatea',discoverApartment:'Descoperă apartamentul',fact1b:'Living open-space',fact1s:'spațios și luminos',fact2b:'Dormitor separat',fact2s:'ambient cald și liniștit',fact3b:'Baie cu cadă',fact3s:'plus mașină de spălat',fact4b:'Bucătărie completă',fact4s:'inclusiv aparat de cafea',fact5b:'Zonă exterioară',fact5s:'pentru relaxare',introTitle:'Un spațiu în care te instalezi ușor.',introBody:'Designul calm, lumina naturală și planul open-space creează un apartament potrivit atât pentru un city break, cât și pentru un sejur mai lung în Brașov. Livingul, bucătăria și zona de relaxare funcționează împreună într-un spațiu modern și aerisit.',insideKicker:'Apartamentul',insideTitle:'Tot ce ai nevoie, într-un singur loc.',insideBody:'Spațiile sunt gândite pentru confortul de zi cu zi: living generos, dormitor separat, bucătărie complet echipată și baie cu cadă. Fiecare zonă este simplă, practică și pregătită pentru un sejur relaxat în Brașov.',bedroomLabel:'Odihnă',bedroomTitle:'Dormitor',bedroomBody:'Dormitor separat, cu lumină caldă și un design calm, în tonuri naturale.',livingLabel:'Relaxare',livingTitle:'Living',livingBody:'Canapea generoasă, TV și multă lumină naturală.',kitchenLabel:'Open-space',kitchenTitle:'Bucătărie',kitchenBody:'Bucătărie complet echipată, insulă și zonă dedicată pentru cafea.',bathLabel:'Confort',bathTitle:'Baie',bathBody:'Baie luminoasă cu cadă și facilități utile pentru sejururi mai lungi.',planKicker:'Planifică sejurul',planTitle:'Alege perioada și trimite cererea direct.',planBody:'Selectează perioada din calendar, numărul de oaspeți și, dacă dorești, adaugă un mesaj. Cererea va include automat toate detaliile sejurului.',guests:'Oaspeți',summaryEmpty:'Selectează datele pentru a vedea rezumatul sejurului.',continueBooking:'Trimite cererea',calendarTitle:'Alege perioada',calendarHelp:'Prima dată este check-in; a doua este check-out.',messageLabel:'Mesaj',messagePlaceholder:'Detalii suplimentare (opțional)',sendRequest:'Trimite cererea',reviewsKicker:'Recenzii',reviewsTitle:'Ce spun oaspeții.',reviewsLead:'Experiențe reale de la oaspeți care au ales Central Brasov Apartment pentru sejurul lor în Brașov.',galleryKicker:'Galerie',galleryTitle:'Toate cadrele, într-un singur loc.',showAll:'Vezi toate fotografiile',showLess:'Arată mai puține',amenitiesKicker:'Confort esențial',amenitiesTitle:'Dotări pentru un sejur fără complicații.',am1:'Aparat automat de cafea',am2:'Bucătărie echipată',am3:'Mașină de spălat',am4:'TV cu ecran plat',am5:'Cadă',am6:'Zonă exterioară',am7:'Frigider & cuptor',am8:'Veselă și ustensile',locationKicker:'Locație',locationTitle:'Central, dar într-o zonă liniștită.',locationBody:'Aproape de centrul istoric al Brașovului, dar într-o poziție mai calmă, apartamentul oferă acces rapid către oraș și un mic loc de relaxare în aer liber pentru dimineți liniștite sau seri lejere.',locationOutdoor:'Loc de relaxare în aer liber',oldTown:'Centrul Vechi',council:'Piața Sfatului',siblingKicker:'Două apartamente · aceeași clădire',siblingTitle:'Nu ai găsit date disponibile sau ai nevoie de mai mult spațiu?',siblingBody:'În aceeași clădire se află și Central Premium Apartment. Dacă perioada dorită nu este disponibilă aici sau călătoriți cu prietenii și aveți nevoie de mai mult spațiu, îl puteți verifica și pe acesta.',siblingAltTitle:'Alte date disponibile',siblingAltBody:'O alternativă rapidă dacă perioada dorită nu este liberă aici.',siblingGroupTitle:'Mai mult spațiu',siblingGroupBody:'Două apartamente în aceeași clădire pentru grupuri, prieteni sau familii care vor mai multă flexibilitate.',siblingPanelLabel:'Tot în aceeași clădire',siblingPanelBody:'Apartament spațios, cu două dormitoare, două băi și vedere spre Tâmpa — o opțiune complementară pentru familii și grupuri.',siblingFeature1:'⌂ Două dormitoare și două băi',siblingFeature2:'⛰ Vedere spre Tâmpa',siblingFeature3:'↔ În aceeași clădire',seeSibling:'Vezi Central Premium Apartment',exploreTitle:'Brașovul, într-un singur loc.',exploreKicker:'Explore Brașov',exploreBody:'Vreme, restaurante, activități, locuri de vizitat și servicii pentru oaspeți — aceeași direcție pregătită pentru ecosistemul Brașov, integrat direct în website.',weatherLabel:'Vreme live · Brașov',weatherLoading:'Se încarcă vremea...',weatherReady:'Date meteo actuale',exp1:'Experiențe în Brașov',exp1b:'Activități și experiențe locale din ecosistem.',exp2:'Restaurante aproape de cazare',exp2b:'Recomandări care pot fi sortate după distanță.',exp3:'Locuri de vizitat',exp3b:'Atracții și obiective din baza centrală Explore Brașov.',exp4:'Servicii pentru oaspeți',exp4b:'Transport, transferuri și alte servicii utile.',finalTitle:'Un loc simplu și confortabil pentru zile frumoase în Brașov.',finalBody:'Alege perioada, descoperă apartamentul și trimite cererea direct proprietarului pentru a planifica sejurul în Brașov.',backTop:'Sus'},
+en:{navApartment:'Apartment',navGallery:'Gallery',navLocation:'Location',navExplore:'Explore Brașov',navBooking:'Book',heroKicker:'Brașov · near the Old Town',heroTitle:'Urban comfort, with a home-like feel.',heroLead:'A bright, carefully designed apartment with an open-plan living room, fully equipped kitchen, comfortable bedroom and an outdoor area for quiet moments.',fact0b:'Up to 4 guests',fact0s:'maximum capacity',checkAvailability:'Check availability',discoverApartment:'Discover the apartment',fact1b:'Open-plan living',fact1s:'bright and spacious',fact2b:'Separate bedroom',fact2s:'warm and quiet atmosphere',fact3b:'Bathroom with bathtub',fact3s:'plus washing machine',fact4b:'Full kitchen',fact4s:'including coffee machine',fact5b:'Outdoor area',fact5s:'made for relaxing',introTitle:'A space that is easy to settle into.',introBody:'A calm design, natural light and an open-plan layout make this apartment a good fit for both a city break and a longer stay in Brașov. The living area, kitchen and relaxation space flow together in a modern, airy interior.',insideKicker:'The apartment',insideTitle:'Everything you need, in one place.',insideBody:'The apartment is designed around everyday comfort: a generous living area, a separate bedroom, a fully equipped kitchen and a bathroom with a bathtub. Each space is practical, calm and ready for an easy stay in Brașov.',bedroomLabel:'Rest',bedroomTitle:'Bedroom',bedroomBody:'A separate bedroom with warm lighting and a calm, natural palette.',livingLabel:'Relax',livingTitle:'Living Room',livingBody:'Generous sofa, TV and plenty of natural light.',kitchenLabel:'Open-plan',kitchenTitle:'Kitchen',kitchenBody:'Fully equipped kitchen with island and a dedicated coffee corner.',bathLabel:'Comfort',bathTitle:'Bathroom',bathBody:'Bright bathroom with bathtub and practical amenities for longer stays.',planKicker:'Plan your stay',planTitle:'Choose your dates and send your request directly.',planBody:'Select your dates in the calendar, choose the number of guests and add a message if you wish. Your request will automatically include all the stay details.',guests:'Guests',summaryEmpty:'Choose your dates to see the stay summary.',continueBooking:'Send request',calendarTitle:'Choose your dates',calendarHelp:'The first date is check-in; the second is check-out.',messageLabel:'Message',messagePlaceholder:'Additional details (optional)',sendRequest:'Send request',reviewsKicker:'Reviews',reviewsTitle:'What our guests say.',reviewsLead:'Real experiences from guests who chose Central Brasov Apartment for their stay in Brașov.',galleryKicker:'Gallery',galleryTitle:'Every frame, in one place.',showAll:'View all photos',showLess:'Show fewer',amenitiesKicker:'Essential comfort',amenitiesTitle:'Useful amenities for an easy stay.',am1:'Automatic coffee machine',am2:'Equipped kitchen',am3:'Washing machine',am4:'Flat-screen TV',am5:'Bathtub',am6:'Outdoor area',am7:'Fridge & oven',am8:'Tableware & utensils',locationKicker:'Location',locationTitle:'Central, yet in a quiet area.',locationBody:'Close to Brașov’s historic centre yet set in a calmer spot, the apartment gives you easy access to the city together with a small outdoor area for slow mornings or relaxed evenings.',locationOutdoor:'Outdoor relaxation corner',oldTown:'Old Town',council:'Council Square',siblingKicker:'Two apartments · same building',siblingTitle:'Can’t find available dates or need more space?',siblingBody:'Central Premium Apartment is in the same building. If your preferred dates are unavailable here or you are travelling with friends and need more space, you can also check the sister apartment.',siblingAltTitle:'Alternative dates',siblingAltBody:'A quick option when your preferred dates are not available here.',siblingGroupTitle:'More space',siblingGroupBody:'Two apartments in the same building for groups, friends or families who want more flexibility.',siblingPanelLabel:'Also in the same building',siblingPanelBody:'A spacious apartment with two bedrooms, two bathrooms and views towards Tâmpa — a complementary option for families and groups.',siblingFeature1:'⌂ Two bedrooms and two bathrooms',siblingFeature2:'⛰ Tâmpa views',siblingFeature3:'↔ Same building',seeSibling:'View Central Premium Apartment',exploreTitle:'Brașov, all in one place.',exploreKicker:'Explore Brașov',exploreBody:'Weather, restaurants, activities, places to visit and guest services — the same direction prepared for the Brașov ecosystem, integrated directly into the website.',weatherLabel:'Live weather · Brașov',weatherLoading:'Loading weather...',weatherReady:'Current weather',exp1:'Experiences in Brașov',exp1b:'Local activities and experiences from the ecosystem.',exp2:'Restaurants near your stay',exp2b:'Recommendations that can be sorted by distance.',exp3:'Places to visit',exp3b:'Attractions loaded from the central Explore Brașov database.',exp4:'Guest services',exp4b:'Transport, transfers and other useful services.',finalTitle:'A simple, comfortable place for memorable days in Brașov.',finalBody:'Choose your dates, discover the apartment and send your request directly to the owner to plan your Brașov stay.',backTop:'Top'},
+de:{navApartment:'Apartment',navGallery:'Galerie',navLocation:'Lage',navExplore:'Explore Brașov',navBooking:'Buchen',heroKicker:'Brașov · nahe der Altstadt',heroTitle:'Urbaner Komfort mit einem Gefühl wie zu Hause.',heroLead:'Ein helles, sorgfältig eingerichtetes Apartment mit offenem Wohnbereich, voll ausgestatteter Küche, komfortablem Schlafzimmer und einem Außenbereich für ruhige Momente.',fact0b:'Bis zu 4 Gäste',fact0s:'maximale Belegung',checkAvailability:'Verfügbarkeit prüfen',discoverApartment:'Apartment entdecken',fact1b:'Offener Wohnbereich',fact1s:'hell und großzügig',fact2b:'Separates Schlafzimmer',fact2s:'warm und ruhig',fact3b:'Bad mit Badewanne',fact3s:'plus Waschmaschine',fact4b:'Komplette Küche',fact4s:'inklusive Kaffeemaschine',fact5b:'Außenbereich',fact5s:'zum Entspannen',introTitle:'Ein Ort, an dem man sich schnell wohlfühlt.',introBody:'Ruhiges Design, viel Tageslicht und ein offener Grundriss machen das Apartment ideal für einen Citytrip oder einen längeren Aufenthalt in Brașov.',insideKicker:'Das Apartment',insideTitle:'Alles, was Sie brauchen, an einem Ort.',insideBody:'Das Apartment ist auf täglichen Komfort ausgelegt: großzügiger Wohnbereich, separates Schlafzimmer, voll ausgestattete Küche und ein Badezimmer mit Badewanne. Jeder Bereich ist praktisch, ruhig und für einen entspannten Aufenthalt in Brașov vorbereitet.',bedroomLabel:'Erholung',bedroomTitle:'Schlafzimmer',bedroomBody:'Separates Schlafzimmer mit warmem Licht und ruhigen Naturtönen.',livingLabel:'Entspannung',livingTitle:'Wohnzimmer',livingBody:'Großzügiges Sofa, TV und viel Tageslicht.',kitchenLabel:'Open Space',kitchenTitle:'Küche',kitchenBody:'Voll ausgestattete Küche mit Insel und separater Kaffee-Ecke.',bathLabel:'Komfort',bathTitle:'Badezimmer',bathBody:'Helles Badezimmer mit Badewanne und praktischer Ausstattung für längere Aufenthalte.',planKicker:'Aufenthalt planen',planTitle:'Wählen Sie Ihre Daten und senden Sie Ihre Anfrage direkt.',planBody:'Wählen Sie den Zeitraum im Kalender und die Gästezahl und fügen Sie bei Bedarf eine Nachricht hinzu. Ihre Anfrage enthält automatisch alle Aufenthaltsdetails.',guests:'Gäste',summaryEmpty:'Wählen Sie Ihre Daten, um die Zusammenfassung zu sehen.',continueBooking:'Anfrage senden',calendarTitle:'Zeitraum wählen',calendarHelp:'Das erste Datum ist Check-in; das zweite ist Check-out.',messageLabel:'Nachricht',messagePlaceholder:'Zusätzliche Angaben (optional)',sendRequest:'Anfrage senden',reviewsKicker:'Bewertungen',reviewsTitle:'Was unsere Gäste sagen.',reviewsLead:'Echte Erfahrungen von Gästen, die Central Brasov Apartment für ihren Aufenthalt in Brașov gewählt haben.',galleryKicker:'Galerie',galleryTitle:'Alle Bilder an einem Ort.',showAll:'Alle Fotos ansehen',showLess:'Weniger anzeigen',amenitiesKicker:'Wesentlicher Komfort',amenitiesTitle:'Ausstattung für einen unkomplizierten Aufenthalt.',am1:'Automatische Kaffeemaschine',am2:'Ausgestattete Küche',am3:'Waschmaschine',am4:'Flachbild-TV',am5:'Badewanne',am6:'Außenbereich',am7:'Kühlschrank & Backofen',am8:'Geschirr & Küchenutensilien',locationKicker:'Lage',locationTitle:'Zentral, aber in ruhiger Umgebung.',locationBody:'Nahe dem historischen Zentrum von Brașov und dennoch in ruhigerer Lage bietet das Apartment schnellen Zugang zur Stadt sowie einen kleinen Außenbereich für entspannte Morgen oder ruhige Abende.',locationOutdoor:'Kleiner Außenbereich zum Entspannen',oldTown:'Altstadt',council:'Rathausplatz',siblingKicker:'Zwei Apartments · dasselbe Gebäude',siblingTitle:'Keine verfügbaren Daten gefunden oder mehr Platz benötigt?',siblingBody:'Central Premium Apartment befindet sich im selben Gebäude. Wenn Ihr Wunschzeitraum hier nicht verfügbar ist oder Sie mit Freunden reisen und mehr Platz benötigen, können Sie auch das Schwester-Apartment prüfen.',siblingAltTitle:'Alternative Reisedaten',siblingAltBody:'Eine schnelle Alternative, wenn Ihr Wunschzeitraum hier nicht verfügbar ist.',siblingGroupTitle:'Mehr Platz',siblingGroupBody:'Zwei Apartments im selben Gebäude für Gruppen, Freunde oder Familien, die mehr Flexibilität wünschen.',siblingPanelLabel:'Ebenfalls im selben Gebäude',siblingPanelBody:'Ein großzügiges Apartment mit zwei Schlafzimmern, zwei Bädern und Blick auf die Tâmpa — eine passende Ergänzung für Familien und Gruppen.',siblingFeature1:'⌂ Zwei Schlafzimmer und zwei Bäder',siblingFeature2:'⛰ Blick auf die Tâmpa',siblingFeature3:'↔ Dasselbe Gebäude',seeSibling:'Central Premium Apartment ansehen',exploreTitle:'Brașov an einem Ort.',exploreKicker:'Explore Brașov',exploreBody:'Wetter, Restaurants, Aktivitäten, Sehenswürdigkeiten und Gästeservices — dieselbe Richtung für das Brașov-Ökosystem, direkt in die Website integriert.',weatherLabel:'Live-Wetter · Brașov',weatherLoading:'Wetter wird geladen...',weatherReady:'Aktuelle Wetterdaten',exp1:'Erlebnisse in Brașov',exp1b:'Lokale Aktivitäten und Erlebnisse aus dem Ökosystem.',exp2:'Restaurants in der Nähe',exp2b:'Empfehlungen, die nach Entfernung sortiert werden können.',exp3:'Sehenswürdigkeiten',exp3b:'Attraktionen aus der zentralen Explore-Brașov-Datenbank.',exp4:'Gästeservices',exp4b:'Transport, Transfers und weitere nützliche Services.',finalTitle:'Ein unkomplizierter, komfortabler Ort für schöne Tage in Brașov.',finalBody:'Wählen Sie Ihre Daten, entdecken Sie das Apartment und senden Sie Ihre Anfrage direkt an den Eigentümer, um Ihren Brașov-Aufenthalt zu planen.',backTop:'Nach oben'}
 };
 let currentLang='ro';
 function t(k){return I18N[currentLang][k]||I18N.ro[k]||k}
-function setLang(lang){currentLang=lang;document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=t(el.dataset.i18n));document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));langBtn.textContent=lang.toUpperCase()+' ▾';langMenu.classList.remove('open');document.getElementById('toggleGallery').textContent=galleryExpanded?t('showLess'):t('showAll');updateSummary();renderCalendar()}
+function setLang(lang){currentLang=lang;document.documentElement.lang=lang;document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=t(el.dataset.i18n));document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>el.placeholder=t(el.dataset.i18nPlaceholder));langBtn.textContent=lang.toUpperCase()+' ▾';langMenu.classList.remove('open');document.getElementById('toggleGallery').textContent=galleryExpanded?t('showLess'):t('showAll');updateSummary();renderCalendar();if(typeof liveAvailabilityReady!=='undefined'&&!liveAvailabilityReady&&typeof showBookingStatus==='function'){showBookingStatus(availabilityText(liveAvailabilityError?'error':'loading'),liveAvailabilityError)}}
 document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>setLang(b.dataset.lang));
 
 const ci=document.getElementById('checkin'),co=document.getElementById('checkout'),guests=document.getElementById('guests');
 const bookingSummary=document.getElementById('bookingSummary');
+const bookingStatus=document.getElementById('bookingStatus');
 const calendarMonths=document.getElementById('calendarMonths');
 const calendarPrev=document.getElementById('calendarPrev');
 const calendarNext=document.getElementById('calendarNext');
+
+const PUBLIC_SUPABASE_URL='https://cimdefypgbkfizyykhkm.supabase.co';
+const PUBLIC_SUPABASE_PUBLISHABLE_KEY='sb_publishable_Ps8bDeuKhgf2NY4lNdGoOA_fQP15uAD';
+const PUBLIC_PROPERTY_SLUG='central-brasov-apartment';
+
+const publicCalendarClient=window.supabase.createClient(
+  PUBLIC_SUPABASE_URL,
+  PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+  {auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}}
+);
+
+let liveAvailabilityReady=false;
+let liveAvailabilityError=false;
+let occupiedRanges=[];
+
 const today=new Date();today.setHours(0,0,0,0);
 const localIso=d=>{const x=new Date(d);x.setMinutes(x.getMinutes()-x.getTimezoneOffset());return x.toISOString().slice(0,10)};
-const todayIso=localIso(today);ci.min=todayIso;co.min=todayIso;
+const todayIso=localIso(today);
+ci.min=todayIso;
+co.min=localIso(new Date(today.getTime()+86400000));
 let calendarCursor=new Date(today.getFullYear(),today.getMonth(),1);
 
+function dateOnly(value){
+  if(!value)return null;
+  const d=new Date(value+'T00:00:00');
+  d.setHours(0,0,0,0);
+  return d;
+}
+
+function availabilityText(key){
+  const copy={
+    loading:{ro:'Se încarcă disponibilitatea...',en:'Loading availability...',de:'Verfügbarkeit wird geladen...'},
+    error:{ro:'Disponibilitatea nu poate fi verificată momentan. Te rugăm să încerci din nou.',en:'Availability cannot be checked right now. Please try again.',de:'Die Verfügbarkeit kann momentan nicht geprüft werden. Bitte versuchen Sie es erneut.'},
+    occupied:{ro:'Data selectată este ocupată.',en:'The selected date is unavailable.',de:'Das gewählte Datum ist nicht verfügbar.'},
+    conflict:{ro:'Perioada selectată include cel puțin o noapte ocupată. Alege alt interval.',en:'The selected stay includes at least one unavailable night. Please choose another period.',de:'Der gewählte Zeitraum enthält mindestens eine belegte Nacht. Bitte wählen Sie einen anderen Zeitraum.'}
+  };
+  return copy[key]?.[currentLang]||copy[key]?.ro||'';
+}
+
+function showBookingStatus(message,isError=false){
+  bookingStatus.textContent=message||'';
+  bookingStatus.style.color=isError?'#9a4f43':'var(--muted)';
+  bookingStatus.style.fontWeight=isError?'800':'600';
+}
+
+function isOccupiedNight(date){
+  const key=localIso(date);
+  return occupiedRanges.some(range=>key>=range.check_in && key<range.check_out);
+}
+
+function isStayIntervalAvailable(start,end){
+  if(!start||!end||end<=start)return false;
+  const cursor=new Date(start);
+  cursor.setHours(0,0,0,0);
+  while(cursor<end){
+    if(isOccupiedNight(cursor))return false;
+    cursor.setDate(cursor.getDate()+1);
+  }
+  return true;
+}
+
+function isCalendarDateSelectable(date){
+  if(date<today||!liveAvailabilityReady)return false;
+  const selectedIn=dateOnly(ci.value);
+  const selectedOut=dateOnly(co.value);
+  if(!selectedIn||selectedOut||date<=selectedIn){
+    return !isOccupiedNight(date);
+  }
+  return isStayIntervalAvailable(selectedIn,date);
+}
+
+function resetInvalidSelection(message){
+  ci.value='';
+  co.value='';
+  co.min=localIso(new Date(today.getTime()+86400000));
+  updateSummary();
+  showBookingStatus(message,true);
+  renderCalendar();
+}
+
+function validateSelectedDates(){
+  if(!liveAvailabilityReady){
+    showBookingStatus(
+      liveAvailabilityError?availabilityText('error'):availabilityText('loading'),
+      liveAvailabilityError
+    );
+    return false;
+  }
+
+  const start=dateOnly(ci.value);
+  const end=dateOnly(co.value);
+
+  if(start&&isOccupiedNight(start)){
+    resetInvalidSelection(availabilityText('occupied'));
+    return false;
+  }
+
+  if(start&&end&&!isStayIntervalAvailable(start,end)){
+    resetInvalidSelection(availabilityText('conflict'));
+    return false;
+  }
+
+  showBookingStatus('');
+  return true;
+}
+
+async function loadLiveAvailability(){
+  liveAvailabilityReady=false;
+  liveAvailabilityError=false;
+  occupiedRanges=[];
+  showBookingStatus(availabilityText('loading'));
+  renderCalendar();
+
+  try{
+    const {data,error}=await publicCalendarClient.rpc(
+      'public_property_availability',
+      {p_property_slug:PUBLIC_PROPERTY_SLUG}
+    );
+    if(error)throw error;
+
+    occupiedRanges=(data||[])
+      .filter(row=>row.check_in&&row.check_out)
+      .map(row=>({check_in:row.check_in,check_out:row.check_out}));
+
+    liveAvailabilityReady=true;
+    liveAvailabilityError=false;
+    showBookingStatus('');
+  }catch(error){
+    console.error('Could not load live property availability.',error);
+    liveAvailabilityReady=false;
+    liveAvailabilityError=true;
+    occupiedRanges=[];
+    showBookingStatus(availabilityText('error'),true);
+  }
+
+  renderCalendar();
+}
+
 function updateSummary(){
-  if(!ci.value||!co.value){bookingSummary.textContent=t('summaryEmpty');return}
+  if(!ci.value||!co.value){bookingSummary.textContent='';bookingSummary.style.display='none';return}
   const a=new Date(ci.value+'T00:00:00'),b=new Date(co.value+'T00:00:00'),n=Math.round((b-a)/86400000);
+  bookingSummary.style.display='block';
   if(n<=0){bookingSummary.textContent=currentLang==='ro'?'Check-out trebuie să fie după check-in.':currentLang==='de'?'Check-out muss nach Check-in liegen.':'Check-out must be after check-in.';return}
   bookingSummary.textContent=currentLang==='ro'?`${n} nopți · ${guests.value} oaspeți · ${ci.value} → ${co.value}`:currentLang==='de'?`${n} Nächte · ${guests.value} Gäste · ${ci.value} → ${co.value}`:`${n} nights · ${guests.value} guests · ${ci.value} → ${co.value}`;
 }
 
 function monthName(date){return new Intl.DateTimeFormat(currentLang==='de'?'de-DE':currentLang==='en'?'en-GB':'ro-RO',{month:'long',year:'numeric'}).format(date)}
 function weekdayNames(){const base=new Date(2024,0,1);return Array.from({length:7},(_,i)=>new Intl.DateTimeFormat(currentLang==='de'?'de-DE':currentLang==='en'?'en-GB':'ro-RO',{weekday:'short'}).format(new Date(base.getFullYear(),base.getMonth(),base.getDate()+i)).replace('.',''))}
+
 function renderMonth(base){
   const wrap=document.createElement('div');wrap.className='calendar-month';
   const title=document.createElement('div');title.className='calendar-month-title';title.textContent=monthName(base);wrap.appendChild(title);
@@ -1447,40 +1675,184 @@ function renderMonth(base){
   const first=new Date(base.getFullYear(),base.getMonth(),1);const leading=(first.getDay()+6)%7;
   for(let i=0;i<leading;i++){const e=document.createElement('button');e.type='button';e.className='calendar-day empty';days.appendChild(e)}
   const total=new Date(base.getFullYear(),base.getMonth()+1,0).getDate();
+
   for(let d=1;d<=total;d++){
-    const date=new Date(base.getFullYear(),base.getMonth(),d);const iso=localIso(date);const b=document.createElement('button');b.type='button';b.className='calendar-day';b.textContent=d;
-    if(date<today){b.disabled=true;b.classList.add('past')}
+    const date=new Date(base.getFullYear(),base.getMonth(),d);date.setHours(0,0,0,0);
+    const iso=localIso(date);
+    const b=document.createElement('button');
+    b.type='button';
+    b.className='calendar-day';
+    b.textContent=d;
+
+    if(date<today){
+      b.disabled=true;
+      b.classList.add('past');
+    }else if(!liveAvailabilityReady){
+      b.disabled=true;
+      b.classList.add('loading');
+    }else if(!isCalendarDateSelectable(date)){
+      b.disabled=true;
+      b.classList.add('unavailable');
+      b.title=availabilityText('occupied');
+    }
+
     if(iso===todayIso)b.classList.add('today');
     if(iso===ci.value||iso===co.value)b.classList.add('selected');
     if(ci.value&&co.value&&iso>ci.value&&iso<co.value)b.classList.add('in-range');
-    b.addEventListener('click',()=>selectCalendarDate(iso));days.appendChild(b);
+
+    b.addEventListener('click',()=>selectCalendarDate(iso));
+    days.appendChild(b);
   }
-  wrap.appendChild(days);return wrap;
+
+  wrap.appendChild(days);
+  return wrap;
 }
+
 function renderCalendar(){
-  calendarMonths.innerHTML='';calendarMonths.appendChild(renderMonth(calendarCursor));calendarMonths.appendChild(renderMonth(new Date(calendarCursor.getFullYear(),calendarCursor.getMonth()+1,1)));
-  const currentStart=new Date(today.getFullYear(),today.getMonth(),1);calendarPrev.disabled=calendarCursor<=currentStart;
+  calendarMonths.innerHTML='';
+  calendarMonths.appendChild(renderMonth(calendarCursor));
+  calendarMonths.appendChild(renderMonth(new Date(calendarCursor.getFullYear(),calendarCursor.getMonth()+1,1)));
+  const currentStart=new Date(today.getFullYear(),today.getMonth(),1);
+  calendarPrev.disabled=calendarCursor<=currentStart;
 }
+
 function selectCalendarDate(iso){
-  if(!ci.value||co.value){ci.value=iso;co.value='';co.min=iso}
-  else if(iso<=ci.value){ci.value=iso;co.value='';co.min=iso}
-  else{co.value=iso}
-  updateSummary();renderCalendar();
+  const date=dateOnly(iso);
+  if(!date||!isCalendarDateSelectable(date))return;
+
+  if(!ci.value||co.value){
+    ci.value=iso;
+    co.value='';
+    const next=new Date(date);
+    next.setDate(next.getDate()+1);
+    co.min=localIso(next);
+  }else if(iso<=ci.value){
+    ci.value=iso;
+    co.value='';
+    const next=new Date(date);
+    next.setDate(next.getDate()+1);
+    co.min=localIso(next);
+  }else{
+    co.value=iso;
+  }
+
+  validateSelectedDates();
+  updateSummary();
+  renderCalendar();
 }
-calendarPrev.onclick=()=>{const prev=new Date(calendarCursor.getFullYear(),calendarCursor.getMonth()-1,1);const min=new Date(today.getFullYear(),today.getMonth(),1);if(prev>=min){calendarCursor=prev;renderCalendar()}};
+
+calendarPrev.onclick=()=>{
+  const prev=new Date(calendarCursor.getFullYear(),calendarCursor.getMonth()-1,1);
+  const min=new Date(today.getFullYear(),today.getMonth(),1);
+  if(prev>=min){calendarCursor=prev;renderCalendar()}
+};
 calendarNext.onclick=()=>{calendarCursor=new Date(calendarCursor.getFullYear(),calendarCursor.getMonth()+1,1);renderCalendar()};
-[ci,co,guests].forEach(el=>el.addEventListener('change',()=>{if(ci.value){co.min=ci.value;if(co.value&&co.value<=ci.value)co.value=''}updateSummary();renderCalendar()}));
+
+ci.addEventListener('change',()=>{
+  if(ci.value){
+    const next=new Date(ci.value+'T00:00:00');
+    next.setDate(next.getDate()+1);
+    co.min=localIso(next);
+    if(co.value&&co.value<co.min)co.value='';
+  }
+  validateSelectedDates();
+  updateSummary();
+  renderCalendar();
+});
+co.addEventListener('change',()=>{
+  validateSelectedDates();
+  updateSummary();
+  renderCalendar();
+});
+guests.addEventListener('change',updateSummary);
+
 renderCalendar();
 setLang('ro');
+loadLiveAvailability();
+
+
+const reviewsTrack=document.getElementById('reviewsTrack');
+const reviewsCards=[...document.querySelectorAll('.review-card')];
+const reviewsDots=document.getElementById('reviewsDots');
+const reviewsPrev=document.getElementById('reviewsPrev');
+const reviewsNext=document.getElementById('reviewsNext');
+let reviewIndex=0,reviewTimer=null,reviewScrollTimer=null;
+function reviewsVisibleCount(){
+  if(!reviewsCards.length)return 1;
+  return Math.max(1,Math.round(reviewsTrack.clientWidth/reviewsCards[0].getBoundingClientRect().width));
+}
+function reviewsMaxIndex(){return Math.max(0,reviewsCards.length-reviewsVisibleCount())}
+function buildReviewDots(){
+  const total=reviewsMaxIndex()+1;
+  reviewsDots.innerHTML='';
+  reviewIndex=Math.min(reviewIndex,total-1);
+  for(let i=0;i<total;i++){
+    const dot=document.createElement('button');
+    dot.type='button';dot.className='reviews-dot'+(i===reviewIndex?' active':'');dot.setAttribute('aria-label',`Review ${i+1}`);
+    dot.onclick=()=>goToReview(i,true);reviewsDots.appendChild(dot);
+  }
+}
+function updateReviewDots(){[...reviewsDots.children].forEach((d,i)=>d.classList.toggle('active',i===reviewIndex))}
+function goToReview(index,restart=false){
+  const max=reviewsMaxIndex();
+  reviewIndex=index<0?max:index>max?0:index;
+  const card=reviewsCards[reviewIndex];
+  if(card)reviewsTrack.scrollTo({left:card.offsetLeft-reviewsTrack.offsetLeft,behavior:'smooth'});
+  updateReviewDots();
+  if(restart)startReviewAuto();
+}
+function startReviewAuto(){clearInterval(reviewTimer);reviewTimer=setInterval(()=>goToReview(reviewIndex+1,false),4500)}
+reviewsPrev.onclick=()=>goToReview(reviewIndex-1,true);
+reviewsNext.onclick=()=>goToReview(reviewIndex+1,true);
+reviewsTrack.addEventListener('scroll',()=>{
+  clearTimeout(reviewScrollTimer);
+  reviewScrollTimer=setTimeout(()=>{
+    let nearest=0,min=Infinity;
+    reviewsCards.forEach((card,i)=>{const d=Math.abs((card.offsetLeft-reviewsTrack.offsetLeft)-reviewsTrack.scrollLeft);if(d<min){min=d;nearest=i}});
+    reviewIndex=Math.min(nearest,reviewsMaxIndex());updateReviewDots();
+  },90);
+},{passive:true});
+reviewsTrack.addEventListener('mouseenter',()=>clearInterval(reviewTimer));
+reviewsTrack.addEventListener('mouseleave',startReviewAuto);
+reviewsTrack.addEventListener('touchstart',()=>clearInterval(reviewTimer),{passive:true});
+reviewsTrack.addEventListener('touchend',startReviewAuto,{passive:true});
+window.addEventListener('resize',()=>{buildReviewDots();goToReview(reviewIndex,false)});
+buildReviewDots();startReviewAuto();
 
 
 document.getElementById('bookingBtn').onclick=()=>{
   const guestMessage=document.getElementById('guestMessage').value.trim();
-  if(!ci.value||!co.value){alert(currentLang==='ro'?'Te rog selectează perioada din calendar.':currentLang==='de'?'Bitte wählen Sie den Zeitraum im Kalender.':'Please select your dates in the calendar.');return}
-  if(co.value<=ci.value){alert(currentLang==='ro'?'Check-out trebuie să fie după check-in.':currentLang==='de'?'Check-out muss nach Check-in liegen.':'Check-out must be after check-in.');return}
+
+  if(!liveAvailabilityReady){
+    alert(availabilityText(liveAvailabilityError?'error':'loading'));
+    return;
+  }
+
+  if(!ci.value||!co.value){
+    alert(currentLang==='ro'?'Te rog selectează perioada din calendar.':currentLang==='de'?'Bitte wählen Sie den Zeitraum im Kalender.':'Please select your dates in the calendar.');
+    return;
+  }
+
+  if(co.value<=ci.value){
+    alert(currentLang==='ro'?'Check-out trebuie să fie după check-in.':currentLang==='de'?'Check-out muss nach Check-in liegen.':'Check-out must be after check-in.');
+    return;
+  }
+
+  if(!validateSelectedDates())return;
+
   const phone='40747172553';
-  const intro=currentLang==='de'?'Hallo! Ich möchte Informationen über Central Brasov Apartment.':currentLang==='en'?'Hello! I would like information about Central Brasov Apartment.':'Bună ziua! As dori rezervare pentru Central Brasov Apartment.';
-  const labels=currentLang==='de'?{guests:'Gäste',message:'Nachricht'}:currentLang==='en'?{guests:'Guests',message:'Message'}:{guests:'Oaspeți',message:'Mesaj'};
+  const intro=currentLang==='de'
+    ?'Hallo! Ich möchte eine Buchungsanfrage für Central Brasov Apartment senden.'
+    :currentLang==='en'
+      ?'Hello! I would like to send a booking request for Central Brasov Apartment.'
+      :'Bună ziua! Aș dori să trimit o cerere de rezervare pentru Central Brasov Apartment.';
+
+  const labels=currentLang==='de'
+    ?{guests:'Gäste',message:'Nachricht'}
+    :currentLang==='en'
+      ?{guests:'Guests',message:'Message'}
+      :{guests:'Oaspeți',message:'Mesaj'};
+
   const message=`${intro}
 
 Check-in: ${ci.value}
@@ -1489,6 +1861,7 @@ ${labels.guests}: ${guests.value}
 
 ${labels.message}:
 ${guestMessage||'-'}`;
+
   window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`,'_blank','noopener');
 };
 
