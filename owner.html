@@ -628,7 +628,8 @@
 
 
 .legend-circle.available {
-    background: #48a96c;
+    background: #ffffff;
+    border: 1px solid #cfd8de;
 }
 
 
@@ -738,9 +739,11 @@
 
 
 .owner-calendar-day.available {
-    background: #edf8f1;
+    background: #ffffff;
 
-    color: #34774d;
+    color: #31506a;
+
+    border-color: #e4eaee;
 }
 
 
@@ -1013,8 +1016,8 @@
     }
 
     .print-day.available {
-        background: #edf8f1;
-        border-color: #d8ebdf;
+        background: #ffffff;
+        border-color: #dfe6ea;
     }
 
     .print-day-number {
@@ -2093,8 +2096,8 @@
     justify-content: center;
     border: 1px solid #e5eaed;
     border-radius: 6px;
-    background: #edf8f1;
-    color: #34774d;
+    background: #ffffff;
+    color: #31506a;
     font-size: 8px;
     font-weight: 800;
 }
@@ -2137,9 +2140,9 @@
 }
 
 .overview-day.source-manual {
-    background: #edf0f2;
-    color: #66727c;
-    border-color: #d8dfe3;
+    background: #e6f7ee;
+    color: #247048;
+    border-color: #c8ead8;
 }
 
 .overview-day.pending {
@@ -2221,7 +2224,7 @@
 }
 
 .legend-circle.manual-source {
-    background: #7c8994;
+    background: #36a86b;
 }
 
 .owner-calendar-day.source-direct {
@@ -2249,9 +2252,9 @@
 }
 
 .owner-calendar-day.source-manual {
-    background: #edf0f2;
-    color: #66727c;
-    border-color: #d8dfe3;
+    background: #e6f7ee;
+    color: #247048;
+    border-color: #c8ead8;
 }
 
 /* Pending always stays visually distinct, regardless of source. */
@@ -2293,8 +2296,8 @@
 }
 
 .booking-source-badge.manual {
-    background: #edf0f2;
-    color: #66727c !important;
+    background: #e6f7ee;
+    color: #247048 !important;
 }
 
 .sync-provider-icon.vrbo {
@@ -2513,11 +2516,10 @@
             <div class="owner-calendar-legend overview-legend">
 
                 <div><span class="legend-circle available"></span>Available</div>
-                <div><span class="legend-circle direct"></span>Direct website</div>
+                <div><span class="legend-circle direct"></span>Direct / Manual</div>
                 <div><span class="legend-circle booking-source"></span>Booking.com</div>
                 <div><span class="legend-circle airbnb-source"></span>Airbnb</div>
                 <div><span class="legend-circle vrbo-source"></span>Vrbo / Stayz / Bookabach</div>
-                <div><span class="legend-circle manual-source"></span>Manual</div>
                 <div><span class="legend-circle pending"></span>Pending</div>
 
             </div>
@@ -2601,7 +2603,7 @@
 
         <div>
             <span class="legend-circle direct"></span>
-            Direct website
+            Direct / Manual
         </div>
 
         <div>
@@ -2617,11 +2619,6 @@
         <div>
             <span class="legend-circle vrbo-source"></span>
             Vrbo / Stayz / Bookabach
-        </div>
-
-        <div>
-            <span class="legend-circle manual-source"></span>
-            Manual
         </div>
 
         <div>
@@ -5573,11 +5570,11 @@ function renderOverviewCalendar() {
                 );
 
                 const sourceLabels = {
-                    direct: "Direct website",
+                    direct: "Direct / Manual",
                     booking_com: "Booking.com",
                     airbnb: "Airbnb",
                     vrbo: "Vrbo / Stayz / Bookabach",
-                    manual: "Manual"
+                    manual: "Direct / Manual"
                 };
 
                 cell.title =
@@ -6848,11 +6845,11 @@ function renderBookingList() {
                 "manual";
 
             const sourceLabels = {
-                direct: "Direct website",
+                direct: "Direct / Manual",
                 booking_com: "Booking.com",
                 airbnb: "Airbnb",
                 vrbo: "Vrbo / Stayz / Bookabach",
-                manual: "Manual"
+                manual: "Direct / Manual"
             };
 
             sourceBadge.className =
